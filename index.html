@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<meta name="generator" content="Hugo 0.81.0-DEV" />
+    <meta charset="utf-8">
+<title>Algorithm</title>
+<meta name="description" content="Algorithm presentations">
+<meta name="author" content="adam">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/reveal-js/css/reset.css">
+<link rel="stylesheet" href="/reveal-js/css/reveal.css"><link rel="stylesheet" href="/reveal-js/css/theme/moon.css" id="theme">
+<link rel="stylesheet" href="/highlight-js/railscasts.min.css">
+    
+
+<style>
+ 
+.reveal section pre {
+  box-shadow: none;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border: 1px solid lightgrey;
+}
+.reveal section pre:hover {
+  border: 1px solid grey;
+  transition: border 0.3s ease;
+}
+.reveal section pre > code {
+  padding: 10px;
+}
+.reveal table {
+  font-size: 0.65em;
+}
+ 
+.reveal section.side-by-side h1 {
+  position: absolute;
+}
+.reveal section.side-by-side h1:first-of-type {
+  left: 25%;
+}
+.reveal section.side-by-side h1:nth-of-type(2) {
+  right: 25%;
+}
+.reveal section[data-background-image] a,
+.reveal section[data-background-image] p,
+.reveal section[data-background-image] h2 {
+  color: white;
+}
+.reveal section[data-background-image] a {
+  text-decoration: underline;
+}
+</style>
+
+
+<style>
+ 
+.reveal section pre {
+  box-shadow: none;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border: 1px solid lightgrey;
+}
+.reveal section pre:hover {
+  border: 1px solid grey;
+  transition: border 0.3s ease;
+}
+.reveal section pre > code {
+  padding: 10px;
+}
+.reveal table {
+  font-size: 0.65em;
+}
+ 
+.reveal section.side-by-side h1 {
+  position: absolute;
+}
+.reveal section.side-by-side h1:first-of-type {
+  left: 25%;
+}
+.reveal section.side-by-side h1:nth-of-type(2) {
+  right: 25%;
+}
+.reveal section[data-background-image] a,
+.reveal section[data-background-image] p,
+.reveal section[data-background-image] h2 {
+  color: white;
+}
+.reveal section[data-background-image] a {
+  text-decoration: underline;
+}
+</style>
+
+  </head>
+  <body>
+    
+    <style>
+      #logo {
+        position: absolute;
+        top: 1%;
+        left: 1%;
+        width: 15%;
+      }
+    </style>
+    <img id="logo" src="index-logo.png" alt="">
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    <section><h1 id="有趣的算法">有趣的算法</h1>
+<p><small> provided by 吴俊伟 </small></p>
+</section><section>
+<h2 id="什么是算法">什么是算法?</h2>
+<p>方案、指令、策略、机制</p>
+
+
+<span class='fragment '
+  >
+  <ul>
+<li>有穷性</li>
+<li>确切性</li>
+<li>输入项、输出项</li>
+<li>可行性</li>
+</ul>
+
+</span>
+</section><section>
+<h3 id="如何描述一个算法的优劣">如何描述一个算法的优劣?</h3>
+
+
+<section data-shortcode-section>
+<p>算法 = 🐴</p>
+</section><section>
+<p>时间复杂度：执行算法所需要的计算工作量</p>
+<p>空间复杂度：算法需要消耗的内存空间</p>
+</section><section>
+<p>$$
+O(1)&lt;O(\log_2{N})&lt;O(N)&lt;O(N^2)&lt;O(2^N)&lt;O(N!)
+$$</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">输入数据长度</th>
+<th style="text-align:center">可接受复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$≤10^{9}$</td>
+<td style="text-align:center">$O(\log_2{N})$</td>
+</tr>
+<tr>
+<td style="text-align:center">$≤10^{6}$</td>
+<td style="text-align:center">$O(N)$</td>
+</tr>
+<tr>
+<td style="text-align:center">$≤10^{5}$</td>
+<td style="text-align:center">$O(N\log_2{N})$</td>
+</tr>
+<tr>
+<td style="text-align:center">$≤1000$</td>
+<td style="text-align:center">$N^{2}$</td>
+</tr>
+</tbody>
+</table>
+</section><section>
+<p><img src="/images/sort.png" alt=""></p>
+
+</section>
+</section><section>
+<h1 id="怎么做">怎么做？</h1>
+<p><a href="/example/">举个🌰</a></p>
+</section><section>
+<p>纸上得来终觉浅,绝知此事要躬行</p>
+</section><section>
+<h1 id="bit">bit</h1>
+<p><a href="/bit/">💪去做题</a></p>
+</section><section>
+<h1 id="博弈论">博弈论</h1>
+<p><a href="/game/">💪玩游戏</a></p>
+</section><section>
+<h1 id="数学">数学</h1>
+<p><a href="/math/">💪去做题</a></p>
+</section><section>
+<h1 id="一些有趣的算法题">一些有趣的算法题</h1>
+<p><a href="/others/">💪去做题</a></p>
+</section><section>
+<h1 class="fragment fade-out" data-autoslide="1000">thank you</h1>
+<h1 class="fragment fade-up" >end</h1></section>
+
+  
+
+
+</div>
+      <div class="line top"></div>
+<div class="line bottom"></div>
+<div class="line left"></div>
+<div class="line right"></div>
+<div class="line top"></div>
+<div class="line bottom"></div>
+<div class="line left"></div>
+<div class="line right"></div>
+
+    </div>
+<script type="text/javascript" src=/reveal-hugo/object-assign.js></script>
+
+<a href="/reveal-js/css/print/" id="print-location" style="display: none;"></a>
+<script type="text/javascript">
+  var printLocationElement = document.getElementById('print-location');
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = printLocationElement.href + (window.location.search.match(/print-pdf/gi) ? 'pdf.css' : 'paper.css');
+  document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+
+<script type="application/json" id="reveal-hugo-site-params">{"highlight_theme":"railscasts","history":true,"progress":false,"theme":"moon"}</script>
+<script type="application/json" id="reveal-hugo-page-params">{"auto_animate":true,"margin":0.02,"transition":"cube","transition_speed":"slow"}</script>
+
+<script src="/reveal-js/js/reveal.js"></script>
+
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+  
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+  var revealHugoSiteParams = JSON.parse(document.getElementById('reveal-hugo-site-params').innerHTML);
+  var revealHugoPageParams = JSON.parse(document.getElementById('reveal-hugo-page-params').innerHTML);
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams));
+  Reveal.initialize(options);
+</script>
+
+
+  
+  
+  <script type="text/javascript" src="/reveal-js/plugin/markdown/marked.js"></script>
+  
+  <script type="text/javascript" src="/reveal-js/plugin/markdown/markdown.js"></script>
+  
+  <script type="text/javascript" src="/reveal-js/plugin/highlight/highlight.js"></script>
+  
+  <script type="text/javascript" src="/reveal-js/plugin/zoom-js/zoom.js"></script>
+  
+  
+  <script type="text/javascript" src="/reveal-js/plugin/notes/notes.js"></script>
+
+
+
+    
+
+
+<script type="text/javascript">
+
+Reveal.addEventListener('slidechanged', function(event) {
+  console.log("🎞️ Slide is now " + event.indexh);
+});
+</script>
+<style>
+    #logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 100px;
+    }
+</style>
+<style>
+    .hljs-ln-numbers {
+        display: block;
+    }
+</style>
+<img id="logo" src="index-logo.png" alt="">
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+</script>
+
+<script type="text/javascript" id="MathJax-script" async
+        src="/js/tex-svg.js">
+</script>
+    
+
+
+<script type="text/javascript">
+
+Reveal.addEventListener('slidechanged', function(event) {
+  console.log("🎞️ Slide is now " + event.indexh);
+});
+</script>
+<style>
+    #logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 100px;
+    }
+</style>
+<style>
+    .hljs-ln-numbers {
+        display: block;
+    }
+</style>
+<img id="logo" src="index-logo.png" alt="">
+  </body>
+</html>

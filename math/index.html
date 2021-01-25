@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Algorithm</title>
+<meta name="description" content="Algorithm presentations">
+<meta name="author" content="adam">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/reveal-js/css/reset.css">
+<link rel="stylesheet" href="/reveal-js/css/reveal.css"><link rel="stylesheet" href="/reveal-js/css/theme/solarized.css" id="theme">
+<link rel="stylesheet" href="/highlight-js/railscasts.min.css">
+    
+
+<style>
+ 
+.reveal section pre {
+  box-shadow: none;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border: 1px solid lightgrey;
+}
+.reveal section pre:hover {
+  border: 1px solid grey;
+  transition: border 0.3s ease;
+}
+.reveal section pre > code {
+  padding: 10px;
+}
+.reveal table {
+  font-size: 0.65em;
+}
+ 
+.reveal section.side-by-side h1 {
+  position: absolute;
+}
+.reveal section.side-by-side h1:first-of-type {
+  left: 25%;
+}
+.reveal section.side-by-side h1:nth-of-type(2) {
+  right: 25%;
+}
+.reveal section[data-background-image] a,
+.reveal section[data-background-image] p,
+.reveal section[data-background-image] h2 {
+  color: white;
+}
+.reveal section[data-background-image] a {
+  text-decoration: underline;
+}
+</style>
+
+  </head>
+  <body>
+    
+    <style>
+      #logo {
+        position: absolute;
+        top: 1%;
+        left: 1%;
+        width: 15%;
+      }
+    </style>
+    <img id="logo" src="index-logo.png" alt="">
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    <section><h2 id="跳台阶">🐸跳台阶</h2>
+</section><section>
+<p>一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+<br><br>
+<small>PS：结果需对$10^{9}+7$ 取余</small></p>
+<pre><code>输入: 2
+输出: 2
+</code></pre>
+<pre><code>输入: 4
+输出: 5
+</code></pre>
+<pre><code>输入: 54
+输出: 267570670
+解释：n=54时，共有86267571272种跳法，86267571272%1000000007=267570670
+</code></pre>
+</section><section>
+<h4 id="heading">💡</h4>
+<ul>
+  <li class="fragment fade-in">斐波那契数 $$F(n)=F(n-1)+F(n-2)$$</li>
+  <li class="fragment fade-in">中国同余定理 $$c=a+b$$ 则 $$c\%m = (a\%m+b\%m)\%m$$</li>
+</ul>
+</section><section>
+<h3 id="answer-1">answer 1</h3>
+<p>$$F(n)=(F(n-1)+F(n-2))\%1000000007$$</p>
+<pre><code class="language-go">package main
+func fib(n int) int {
+	if n &lt;=1 {
+		return 1
+    }
+    return (fib(n-1)+fib(n-2))%(1e9+7)
+}
+</code></pre>
+</section><section>
+<h3 id="answer-2">answer 2</h3>
+<p>$$F(n)=(F(n-1)+F(n-2))\%1000000007$$</p>
+<pre><code class="language-go">package main
+func fib(n int) int {
+    if n &lt; 2 {
+        return n
+    }
+    p, q, r := 0, 0, 1
+    for i := 2; i &lt;= n; i++ {
+        p = q
+        q = r
+        r = (p + q)%(1e9+7)
+    }
+    return r
+}
+</code></pre>
+</section><section>
+<h3 id="answer-3">answer 3</h3>
+
+
+<section data-shortcode-section>
+<p><small>矩阵乘法➕快速幂</small></p>
+<p>$$
+\left[
+\begin{matrix}
+1 &amp; 1 \\<br>
+1 &amp; 0
+\end{matrix}
+\right]
+\left[
+\begin{matrix}
+F(n)\\<br>
+F(n - 1)
+\end{matrix}
+\right] =
+\left[
+\begin{matrix}
+F(n) + F(n - 1)\\<br>
+F(n)
+\end{matrix}
+\right] =
+\left[
+\begin{matrix}
+F(n + 1)\\<br>
+F(n)
+\end{matrix}
+\right]
+$$</p>
+<p>$$
+\left[
+\begin{matrix}
+F(n + 1)\\<br>
+F(n)
+\end{matrix}
+\right] =
+\left[
+\begin{matrix}
+1 &amp; 1 \\<br>
+1 &amp; 0
+\end{matrix}
+\right] ^n
+\left[
+\begin{matrix}
+F(1)\\<br>
+F(0)
+\end{matrix}
+\right]
+$$</p>
+</section><section>
+<pre><code class="language-go">package main
+type matrix [2][2]int
+
+func multiply(a, b matrix) (c matrix) {
+	for i := 0; i &lt; 2; i++ {
+		for j := 0; j &lt; 2; j++ {
+			c[i][j] = (a[i][0]*b[0][j] + a[i][1]*b[1][j])%(1e9+7)
+		}
+	}
+	return
+}
+
+func pow(a matrix, n int) matrix {
+	ret := matrix{{1, 0}, {0, 1}}
+	for ; n &gt; 0; n &gt;&gt;= 1 {
+		if n&amp;1 == 1 {
+			ret = multiply(ret, a)
+		}
+		a = multiply(a, a)
+	}
+	return ret
+}
+
+func fib(n int) int {
+	if n &lt; 2 {
+		return n
+	}
+	res := pow(matrix{{1, 1}, {1, 0}}, n-1)
+	return res[0][0]
+}
+</code></pre>
+
+</section>
+</section><section>
+<p>$$F(n)=\frac{1}{\sqrt{5}}\left[ \left(\frac{1+\sqrt{5}}{2}\right)^{n} - \left(\frac{1-\sqrt{5}}{2}\right)^{n} \right]$$</p>
+<pre><code class="language-go">package main
+func pow(a float64, n int) float64 {
+	ret := 1
+	for ; n &gt; 0; n &gt;&gt;= 1 {
+		if n&amp;1 == 1 {
+			ret = a
+		}
+		a = a * a
+		for a &gt; 1e9+7 {
+			a -= 1e9 + 7
+		}
+	}
+	return ret
+}
+
+func fib(n int) int {
+    sqrt5 := math.Sqrt(5)
+    p1 := pow((1+sqrt5)/2, float64(n))
+    p2 := pow((1-sqrt5)/2, float64(n))
+    return int(math.Round((p1 - p2) / sqrt5))
+}
+</code></pre>
+</section><section>
+<h3 id="answer-5">answer 5</h3>
+<pre><code class="language-go">package main
+func fib(n int) {
+	nums := [30]int{1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765,10946,17711,28657,46368,75025,121393,196418,317811,514229,832040};
+	return nums[n-1];
+}
+</code></pre>
+</section><section>
+<h4 id="下一节8"><a href="/#/8">下一节</a></h4>
+</section>
+
+  
+
+
+</div>
+      <div class="line top"></div>
+<div class="line bottom"></div>
+<div class="line left"></div>
+<div class="line right"></div>
+
+    </div>
+<script type="text/javascript" src=/reveal-hugo/object-assign.js></script>
+
+<a href="/reveal-js/css/print/" id="print-location" style="display: none;"></a>
+<script type="text/javascript">
+  var printLocationElement = document.getElementById('print-location');
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = printLocationElement.href + (window.location.search.match(/print-pdf/gi) ? 'pdf.css' : 'paper.css');
+  document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+
+<script type="application/json" id="reveal-hugo-site-params">{"highlight_theme":"railscasts","history":true,"progress":false,"theme":"moon"}</script>
+<script type="application/json" id="reveal-hugo-page-params">{"margin":0.02,"theme":"solarized","transition":"slide","transition_speed":"slow"}</script>
+
+<script src="/reveal-js/js/reveal.js"></script>
+
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+  
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+  var revealHugoSiteParams = JSON.parse(document.getElementById('reveal-hugo-site-params').innerHTML);
+  var revealHugoPageParams = JSON.parse(document.getElementById('reveal-hugo-page-params').innerHTML);
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams));
+  Reveal.initialize(options);
+</script>
+
+
+  
+  
+  <script type="text/javascript" src="/reveal-js/plugin/markdown/marked.js"></script>
+  
+  <script type="text/javascript" src="/reveal-js/plugin/markdown/markdown.js"></script>
+  
+  <script type="text/javascript" src="/reveal-js/plugin/highlight/highlight.js"></script>
+  
+  <script type="text/javascript" src="/reveal-js/plugin/zoom-js/zoom.js"></script>
+  
+  
+  <script type="text/javascript" src="/reveal-js/plugin/notes/notes.js"></script>
+
+
+
+    
+
+
+<script type="text/javascript">
+
+Reveal.addEventListener('slidechanged', function(event) {
+  console.log("🎞️ Slide is now " + event.indexh);
+});
+</script>
+<style>
+    #logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 100px;
+    }
+</style>
+<style>
+    .hljs-ln-numbers {
+        display: block;
+    }
+</style>
+<img id="logo" src="index-logo.png" alt="">
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+</script>
+
+<script type="text/javascript" id="MathJax-script" async
+        src="/js/tex-svg.js">
+</script>
+    
+  </body>
+</html>
