@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2021 leetcode 秋季赛 on Adam&#39;s Blog</title>
+    <link>/notes/leetcode/2021-fail-contest/</link>
+    <description>Recent content in 2021 leetcode 秋季赛 on Adam&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language><atom:link href="/notes/leetcode/2021-fail-contest/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>2021 leetcode 秋季赛</title>
+      <link>/notes/leetcode/2021-fail-contest/no.1~3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/leetcode/2021-fail-contest/no.1~3/</guid>
+      <description>第一题 func minimumSwitchingTimes(source [][]int, target [][]int) int { have := make(map[int]int) for i := 0; i &amp;lt; len(source); i++ { for j := 0; j &amp;lt; len(source[i]); j++ { have[source[i][j]]++ } } need:=make(map[int]int) for i := 0; i &amp;lt; len(target); i++ { for j := 0; j &amp;lt; len(target[i]); j++ { need[target[i][j]]++ } } ans:=0 for i, c := range need { if have[i] &amp;gt;= c{ continue } ans+= c-have[i] } return ans } 第二题 func maxmiumScore(cards []int, cnt int) int { var odd, even []int for i := 0; i &amp;lt; len(cards); i++ { if cards[i]&amp;amp;1 == 1 { odd = append(odd, cards[i]) } else { even = append(even, cards[i]) } } sort.</description>
+    </item>
+    
+    <item>
+      <title>2021 leetcode 秋季赛</title>
+      <link>/notes/leetcode/2021-fail-contest/no.4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/leetcode/2021-fail-contest/no.4/</guid>
+      <description> 第四题 func circleGame(toys [][]int, circles [][]int, r int) int { sort.Slice(circles, func(i, j int) bool { return circles[i][0] &amp;lt; circles[j][0] }) ans := 0 for i := 0; i &amp;lt; len(toys); i++ { if toys[i][2]&amp;gt;r{ continue } l, h := 0, len(circles) for l &amp;lt; h { m := (l + h) / 2 if toys[i][0]-toys[i][2] &amp;lt;= circles[m][0]+r { h = m } else { l = m + 1 } } for j:= l; j &amp;lt; len(circles); j++ { if toys[i][0]-toys[i][2] &amp;lt; circles[j][0]-r { break } if in(toys[i], circles[j], r) { ans++ break } } } return ans } func in(x, y []int, r int) bool { return (x[0]-y[0])*(x[0]-y[0])+(x[1]-y[1])*(x[1]-y[1]) &amp;lt;= (r-x[2])*(r-x[2]) } </description>
+    </item>
+    
+    
+  </channel>
+</rss>

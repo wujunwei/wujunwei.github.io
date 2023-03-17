@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>istio on Adam&#39;s Blog</title>
+    <link>/posts/cloud-native/istio/</link>
+    <description>Recent content in istio on Adam&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 04 Apr 2021 23:00:20 +0800</lastBuildDate><atom:link href="/posts/cloud-native/istio/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/galley/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/galley/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/istio-operator/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/istio-operator/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/istioctl/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/istioctl/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/mixer/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/mixer/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/pilot/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/pilot/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/security/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/security/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    
+  </channel>
+</rss>

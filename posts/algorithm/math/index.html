@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <title>数学相关算法题推荐</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="/application.4f6227541485e583fe9f072ae3e4437c79df4f1ac9a9cef8443066d78a81467b.css" integrity="sha256-T2InVBSF5YP&#43;nwcq4&#43;RDfHnfTxrJqc74RDBm14qBRns=" />
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+  
+
+  <link rel="icon" type="image/png" href="/images/site/favicon_hu88901fa2a861e0547be5de4019727266_3472_42x0_resize_box_3.png" />
+
+<meta property="og:title" content="数学相关算法题推荐" />
+<meta property="og:description" content="数学是计算机的重要基础，算法题中常常会用到数学知识，尤其是离散、具体的数学，以数论、排列组合、概率期望、多项式为代表，可以出现在几乎任何类别的题目中，所有题目涉及到的数学知识点都已标出，建议去oi-wiki 学习。
+强烈建议小伙伴先尝试用非数学的常规解法思考以下题目（也许会更简单更好理解），再用数学的解法。
+第一周 5月3日 开胃小菜: 斐波那契数列 ，在这道题中，你会学到算法题中必会的一个数学知识点 中国剩余定理 。建议独自完成四种做法，并完成快速幂 的普通写法（模版）以及公式法 。 灯泡开关 尝试使用数学的思维分析n轮后灯泡亮着必须满足什么条件。 5月5日 超级丑数 做这题之前先学习求质数的几种方法 （强烈建议掌握）,之后只需要思考如果求出第n个即可. 石子游戏 经典的石子游戏肯定是不能错过的，建议用动态规划解一遍。 5月7日 循环码排列 ，可以先用朴素做法，再了解格雷码 ，优化解法。 飞机座位 这道题是很明显可以利用数学优化的题目。 第二周 5月12日 各位相加 尽量优化你的时间复杂度和空间复杂度至 $O(1)$ 。 放松一下： 不浪费原料的汉堡制作方案 我愿称之为最简单中等题。 5月14日 使数组和能被 P 整除 剩余定理的应用，加上前缀和的思想。 最简分数 思路很简单，可以学习到求最大公约 数的做法。 5月16日 检查「好数组」 建议了解裴蜀定理 之后再做这题，通过这个定理你还可以解决以下题目 水壶问题 安排邮筒 动态规划中数学的应用，中位数的思想非常常用。 第三周 5月19日 剪绳子 II leetcode中有许多类似的题目掌握其中的思想，就能解决许多类似的问题： 剪绳子 整数拆分 好因子的最大数目 &hellip; 构造乘积数组 记得考虑特殊情况。 5月21日 字符串相乘 高精度计算，行列式模拟即可。 航班预订 本题可以利用差分 的思想来快速求解区间和（对于不会线段树和树状数组的小伙伴是很有利的）。 5月23日 石子游戏5 石子游戏又来啦。 完全平方数 可以先尝试搜索算法，再看数学解答 拉格朗日四平方定理 。 第四周 5月26日 阶乘后的零 ，我们只需要思考什么数相乘会等于零。 阶乘函数后 K 个零 有了上面的基础这题就会容易一些。 5月28日 形成两个异或相等数组的三元组数目 思考如何利用异或的性质。 消失的两个数 希望能用三中解法解决本题其中位运算法和此题 相似 5月30日 结业考试 乐团站位 思考怎样通过坐标判断是第几圈， 总结每圈的公式。（本题是全站通过率最低的简单题） 奇妙序列 预备知识：乘法逆元 &#43;快速幂&#43;剩余定理。 有能力的小伙伴也可以用树状数组来解答。 （本题是全站通过率最低的困难题） " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/algorithm/math/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-09T09:33:20+08:00" />
+<meta property="article:modified_time" content="2021-04-09T09:33:20+08:00" />
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="数学相关算法题推荐"/>
+<meta name="twitter:description" content="数学是计算机的重要基础，算法题中常常会用到数学知识，尤其是离散、具体的数学，以数论、排列组合、概率期望、多项式为代表，可以出现在几乎任何类别的题目中，所有题目涉及到的数学知识点都已标出，建议去oi-wiki 学习。
+强烈建议小伙伴先尝试用非数学的常规解法思考以下题目（也许会更简单更好理解），再用数学的解法。
+第一周 5月3日 开胃小菜: 斐波那契数列 ，在这道题中，你会学到算法题中必会的一个数学知识点 中国剩余定理 。建议独自完成四种做法，并完成快速幂 的普通写法（模版）以及公式法 。 灯泡开关 尝试使用数学的思维分析n轮后灯泡亮着必须满足什么条件。 5月5日 超级丑数 做这题之前先学习求质数的几种方法 （强烈建议掌握）,之后只需要思考如果求出第n个即可. 石子游戏 经典的石子游戏肯定是不能错过的，建议用动态规划解一遍。 5月7日 循环码排列 ，可以先用朴素做法，再了解格雷码 ，优化解法。 飞机座位 这道题是很明显可以利用数学优化的题目。 第二周 5月12日 各位相加 尽量优化你的时间复杂度和空间复杂度至 $O(1)$ 。 放松一下： 不浪费原料的汉堡制作方案 我愿称之为最简单中等题。 5月14日 使数组和能被 P 整除 剩余定理的应用，加上前缀和的思想。 最简分数 思路很简单，可以学习到求最大公约 数的做法。 5月16日 检查「好数组」 建议了解裴蜀定理 之后再做这题，通过这个定理你还可以解决以下题目 水壶问题 安排邮筒 动态规划中数学的应用，中位数的思想非常常用。 第三周 5月19日 剪绳子 II leetcode中有许多类似的题目掌握其中的思想，就能解决许多类似的问题： 剪绳子 整数拆分 好因子的最大数目 &hellip; 构造乘积数组 记得考虑特殊情况。 5月21日 字符串相乘 高精度计算，行列式模拟即可。 航班预订 本题可以利用差分 的思想来快速求解区间和（对于不会线段树和树状数组的小伙伴是很有利的）。 5月23日 石子游戏5 石子游戏又来啦。 完全平方数 可以先尝试搜索算法，再看数学解答 拉格朗日四平方定理 。 第四周 5月26日 阶乘后的零 ，我们只需要思考什么数相乘会等于零。 阶乘函数后 K 个零 有了上面的基础这题就会容易一些。 5月28日 形成两个异或相等数组的三元组数目 思考如何利用异或的性质。 消失的两个数 希望能用三中解法解决本题其中位运算法和此题 相似 5月30日 结业考试 乐团站位 思考怎样通过坐标判断是第几圈， 总结每圈的公式。（本题是全站通过率最低的简单题） 奇妙序列 预备知识：乘法逆元 &#43;快速幂&#43;剩余定理。 有能力的小伙伴也可以用树状数组来解答。 （本题是全站通过率最低的困难题） "/>
+
+    
+    
+<meta name="description" content="数学相关算法题推荐" />
+
+
+    
+
+    
+        
+        
+        
+            
+            
+            
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H4LBG7NDFZ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-H4LBG7NDFZ', { 'anonymize_ip': false });
+}
+</script>
+
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        
+    
+
+
+
+
+</head>
+
+  <body class="type-posts kind-page" data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_huacd3eec89ea9f54a5a7784c0c79b3f48_13263_42x0_resize_box_3.png" alt="Logo">
+      Adam&#39;s Blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse lang-selector" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      
+      
+        <li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  <a class="dropdown-item nav-link" href="#" data-scheme="light">
+    <img class="menu-icon-center" src="/icons/sun-svgrepo-com.svg" width=20 alt="Light Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="menu-icon-center" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="system">
+    <img class="menu-icon-center" src="/icons/computer-svgrepo-com.svg" width=20 alt="System Theme">
+  </a>
+</div>
+</li>
+
+      
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_huacd3eec89ea9f54a5a7784c0c79b3f48_13263_42x0_resize_box_3.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hu1e12c8650ef2ae3d9f0580bccd716aac_13315_42x0_resize_box_3.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts/" data-filter="all"></a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i class="fas fa-minus-circle"></i><a class="active" href="/posts/algorithm/">算法</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/algorithm/spring-leetcode-contest-2021/" title="leetcode 2021春季赛-个人赛">leetcode 2021春季赛-个人赛</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/algorithm/fail-leetcode-contest-2021/" title="leetcode 2021秋季赛-个人赛">leetcode 2021秋季赛-个人赛</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active" href="/posts/algorithm/math/" title="数学算法题">数学算法题</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/golang/">golang</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/golang/string/" title="string 解析">string 解析</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/cloud-native/">云原生相关技术</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/envoy/" title="envoy">envoy</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/cloud-native/istio/">istio组件分析</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/istio/galley/" title="galley">galley</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/istio/istio-operator/" title="istio operator">istio operator</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/istio/istioctl/" title="istioctl">istioctl</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/istio/mixer/" title="mixer">mixer</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/istio/pilot/" title="pilot">pilot</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/istio/security/" title="security">security</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/cloud-native/kubernetes/">Kubernetes</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/kubernetes/kubebuilder/" title="kubebuilder">kubebuilder</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/algorithm/math/math.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/adam_hu9694fa730dec75957fe47d1ece5e9770_45363_120x120_fit_box_3.png' alt="Author Image">
+          <h5 class="author-name">adam</h5>
+          <p>Friday, April 9, 2021</p>
+        </div>
+
+        <div class="title">
+          <h1>数学相关算法题推荐</h1>
+        </div>
+        
+        <div class="taxonomy-terms">
+          <ul style="padding-left: 0;">
+            
+          </ul>
+        </div>
+        
+        <div class="post-content" id="post-content">
+          <p>数学是计算机的重要基础，算法题中常常会用到数学知识，尤其是离散、具体的数学，以数论、排列组合、概率期望、多项式为代表，可以出现在几乎任何类别的题目中，所有题目涉及到的数学知识点都已标出，建议去<a href="https://oi-wiki.org/basic/" target="_blank" rel="noopener">oi-wiki</a> 学习。</p>
+<blockquote>
+<p>强烈建议小伙伴先尝试用非数学的常规解法思考以下题目（也许会更简单更好理解），再用数学的解法。</p>
+</blockquote>
+<h2 id="第一周">第一周</h2>
+<h3 id="5月3日">5月3日</h3>
+<ul>
+<li>开胃小菜: <a href="https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/" target="_blank" rel="noopener">斐波那契数列</a> ，在这道题中，你会学到算法题中必会的一个数学知识点 <a href="https://oi-wiki.org/math/crt/" target="_blank" rel="noopener">中国剩余定理</a> 。建议独自完成四种做法，并完成<a href="https://oi-wiki.org/math/quick-pow/" target="_blank" rel="noopener">快速幂</a> 的普通写法（模版）以及<a href="https://oi-wiki.org/math/fibonacci/" target="_blank" rel="noopener">公式法</a> 。</li>
+<li><a href="https://leetcode-cn.com/problems/bulb-switcher/" target="_blank" rel="noopener">灯泡开关</a> 尝试使用数学的思维分析<code>n</code>轮后灯泡亮着必须满足什么条件。</li>
+</ul>
+<h3 id="5月5日">5月5日</h3>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/super-ugly-number/" target="_blank" rel="noopener">超级丑数</a> 做这题之前先学习求<a href="https://oi-wiki.org/math/prime/" target="_blank" rel="noopener">质数的几种方法</a> （强烈建议掌握）,之后只需要思考如果求出第n个即可.</li>
+<li><a href="https://leetcode-cn.com/problems/stone-game/" target="_blank" rel="noopener">石子游戏</a> 经典的石子游戏肯定是不能错过的，建议用动态规划解一遍。</li>
+</ul>
+<h3 id="5月7日">5月7日</h3>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/circular-permutation-in-binary-representation/" target="_blank" rel="noopener">循环码排列</a> ，可以先用朴素做法，再了解<a href="https://oi-wiki.org/misc/gray-code/" target="_blank" rel="noopener">格雷码</a> ，优化解法。</li>
+<li><a href="https://leetcode-cn.com/problems/airplane-seat-assignment-probability/" target="_blank" rel="noopener">飞机座位</a> 这道题是很明显可以利用数学优化的题目。</li>
+</ul>
+<h2 id="第二周">第二周</h2>
+<h3 id="5月12日">5月12日</h3>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/add-digits/" target="_blank" rel="noopener">各位相加</a> 尽量优化你的时间复杂度和空间复杂度至 $O(1)$ 。</li>
+<li>放松一下： <a href="https://leetcode-cn.com/problems/number-of-burgers-with-no-waste-of-ingredients/" target="_blank" rel="noopener">不浪费原料的汉堡制作方案</a> 我愿称之为最简单中等题。</li>
+</ul>
+<h3 id="5月14日">5月14日</h3>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/make-sum-divisible-by-p/" target="_blank" rel="noopener">使数组和能被 P 整除</a> 剩余定理的应用，加上前缀和的思想。</li>
+<li><a href="https://leetcode-cn.com/problems/simplified-fractions/" target="_blank" rel="noopener">最简分数</a> 思路很简单，可以学习到求<a href="https://oi-wiki.org/math/gcd/" target="_blank" rel="noopener">最大公约</a> 数的做法。</li>
+</ul>
+<h3 id="5月16日">5月16日</h3>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/check-if-it-is-a-good-array/" target="_blank" rel="noopener">检查「好数组」</a> 建议了解<a href="https://oi-wiki.org/math/bezouts/" target="_blank" rel="noopener">裴蜀定理</a> 之后再做这题，通过这个定理你还可以解决以下题目
+<ul>
+<li><a href="https://leetcode-cn.com/problems/water-and-jug-problem/" target="_blank" rel="noopener">水壶问题</a></li>
+</ul>
+</li>
+<li><a href="https://leetcode-cn.com/problems/allocate-mailboxes/" target="_blank" rel="noopener">安排邮筒</a> 动态规划中数学的应用，中位数的思想非常常用。</li>
+</ul>
+<h2 id="第三周">第三周</h2>
+<h3 id="5月19日">5月19日</h3>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/" target="_blank" rel="noopener">剪绳子 II</a> leetcode中有许多类似的题目掌握其中的思想，就能解决许多类似的问题：
+<ul>
+<li><a href="https://leetcode-cn.com/problems/jian-sheng-zi-lcof/" target="_blank" rel="noopener">剪绳子</a></li>
+<li><a href="https://leetcode-cn.com/problems/integer-break/" target="_blank" rel="noopener">整数拆分</a></li>
+<li><a href="https://leetcode-cn.com/problems/maximize-number-of-nice-divisors/" target="_blank" rel="noopener">好因子的最大数目</a></li>
+<li>&hellip;</li>
+</ul>
+</li>
+<li><a href="https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof/" target="_blank" rel="noopener">构造乘积数组</a> 记得考虑特殊情况。</li>
+</ul>
+<h3 id="5月21日">5月21日</h3>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/multiply-strings/" target="_blank" rel="noopener">字符串相乘</a> 高精度计算，行列式模拟即可。</li>
+<li><a href="https://leetcode-cn.com/problems/corporate-flight-bookings/" target="_blank" rel="noopener">航班预订</a> 本题可以利用<a href="https://oi-wiki.org/basic/prefix-sum/#_6" target="_blank" rel="noopener">差分</a> 的思想来快速求解区间和（对于不会线段树和树状数组的小伙伴是很有利的）。</li>
+</ul>
+<h3 id="5月23日">5月23日</h3>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/stone-game-iv/" target="_blank" rel="noopener">石子游戏5</a> 石子游戏又来啦。</li>
+<li><a href="https://leetcode-cn.com/problems/perfect-squares/" target="_blank" rel="noopener">完全平方数</a> 可以先尝试搜索算法，再看数学解答 <a href="https://leetcode-cn.com/problems/perfect-squares/solution/wan-quan-ping-fang-shu-by-leetcode/" target="_blank" rel="noopener">拉格朗日四平方定理</a> 。</li>
+</ul>
+<h2 id="第四周">第四周</h2>
+<h3 id="5月26日">5月26日</h3>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/factorial-trailing-zeroes/" target="_blank" rel="noopener">阶乘后的零</a> ，我们只需要思考什么数相乘会等于零。</li>
+<li><a href="https://leetcode-cn.com/problems/preimage-size-of-factorial-zeroes-function/" target="_blank" rel="noopener">阶乘函数后 K 个零</a> 有了上面的基础这题就会容易一些。</li>
+</ul>
+<h3 id="5月28日">5月28日</h3>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor/" target="_blank" rel="noopener">形成两个异或相等数组的三元组数目</a> 思考如何利用异或的性质。</li>
+<li><a href="https://leetcode-cn.com/problems/missing-two-lcci/" target="_blank" rel="noopener">消失的两个数</a> 希望能用三中解法解决本题其中位运算法和<a href="https://leetcode-cn.com/problems/single-number-iii/" target="_blank" rel="noopener">此题</a> 相似</li>
+</ul>
+<h3 id="5月30日">5月30日</h3>
+<h4 id="结业考试">结业考试</h4>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/SNJvJP/" target="_blank" rel="noopener">乐团站位</a> 思考怎样通过坐标判断是第几圈， 总结每圈的公式。（本题是全站通过率最低的简单题）</li>
+<li><a href="https://leetcode-cn.com/problems/fancy-sequence/" target="_blank" rel="noopener">奇妙序列</a> 预备知识：<a href="https://oi-wiki.org/math/inverse/" target="_blank" rel="noopener">乘法逆元</a> +快速幂+剩余定理。
+有能力的小伙伴也可以用树状数组来解答。 （本题是全站通过率最低的困难题）</li>
+</ul>
+
+        </div>
+
+        
+        <div class="row pl-3 pr-3">
+        
+        <div class="col-md-6 share-buttons">
+        
+            <strong>:</strong>
+            
+            <a class="btn btn-sm facebook-btn" href="https://www.facebook.com/sharer.php?u=%2fposts%2falgorithm%2fmath%2f" target="_blank">
+              <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+                <a class="btn btn-sm twitter-btn" href="https://twitter.com/share?url=%2fposts%2falgorithm%2fmath%2f&text=%e6%95%b0%e5%ad%a6%e7%9b%b8%e5%85%b3%e7%ae%97%e6%b3%95%e9%a2%98%e6%8e%a8%e8%8d%90&via=Adam%27s%20Blog" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+            
+            
+                <a  class="btn btn-sm reddit-btn" href="https://reddit.com/submit?url=%2fposts%2falgorithm%2fmath%2f&title=%e6%95%b0%e5%ad%a6%e7%9b%b8%e5%85%b3%e7%ae%97%e6%b3%95%e9%a2%98%e6%8e%a8%e8%8d%90" target="_blank">
+                  <i class="fab fa-reddit"></i>
+                </a>
+            
+            
+            
+            
+                <a class="btn btn-sm linkedin-btn" href="https://www.linkedin.com/shareArticle?url=%2fposts%2falgorithm%2fmath%2f&title=%e6%95%b0%e5%ad%a6%e7%9b%b8%e5%85%b3%e7%ae%97%e6%b3%95%e9%a2%98%e6%8e%a8%e8%8d%90" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+            
+            
+             
+            
+                 <a class="btn btn-sm whatsapp-btn" href="https://api.whatsapp.com/send?text=%e6%95%b0%e5%ad%a6%e7%9b%b8%e5%85%b3%e7%ae%97%e6%b3%95%e9%a2%98%e6%8e%a8%e8%8d%90 %2fposts%2falgorithm%2fmath%2f" target="_blank">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+            
+            
+                <a class="btn btn-sm email-btn" href="mailto:?subject=%e6%95%b0%e5%ad%a6%e7%9b%b8%e5%85%b3%e7%ae%97%e6%b3%95%e9%a2%98%e6%8e%a8%e8%8d%90&body=%2fposts%2falgorithm%2fmath%2f" target="_blank">
+                  <i class="fas fa-envelope-open-text"></i>
+                </a>
+            
+          
+          </div>
+
+        
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/algorithm/fail-leetcode-contest-2021/" title="2021 leetcode 秋季赛" class="btn btn-outline-info">
+        <div><i class="fas fa-chevron-circle-left"></i> </div>
+        <div class="next-prev-text">2021 leetcode 秋季赛</div>
+      </a>
+    </div>
+  
+  
+      
+      
+        
+      
+      <div class="col-md-6 next-article">
+        <a href="/posts/golang/string/" title="golang-string" class="btn btn-outline-info">
+          <div> <i class="fas fa-chevron-circle-right"></i></div>
+          <div class="next-prev-text">golang-string</div>
+        </a>
+      </div>
+    
+</div>
+
+      <hr />
+
+      
+      
+
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
+  
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3"></h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一周">第一周</a>
+      <ul>
+        <li><a href="#5月3日">5月3日</a></li>
+        <li><a href="#5月5日">5月5日</a></li>
+        <li><a href="#5月7日">5月7日</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二周">第二周</a>
+      <ul>
+        <li><a href="#5月12日">5月12日</a></li>
+        <li><a href="#5月14日">5月14日</a></li>
+        <li><a href="#5月16日">5月16日</a></li>
+      </ul>
+    </li>
+    <li><a href="#第三周">第三周</a>
+      <ul>
+        <li><a href="#5月19日">5月19日</a></li>
+        <li><a href="#5月21日">5月21日</a></li>
+        <li><a href="#5月23日">5月23日</a></li>
+      </ul>
+    </li>
+    <li><a href="#第四周">第四周</a>
+      <ul>
+        <li><a href="#5月26日">5月26日</a></li>
+        <li><a href="#5月28日">5月28日</a></li>
+        <li><a href="#5月30日">5月30日</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+  
+      
+  
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5></h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#recent-posts">最近博文</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#about">关于我</a>
+                </li>
+              
+            
+              
+                
+              
+                
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5></h5>
+          <ul>
+            
+              
+                <li><a href=mailto:wjw3323@live.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>wjw3323@live.com</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hugo-toha/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2020 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script src="/application.780216d8e156b4d7401346fd95ad6c1bf581b15313710b944e86b0658a69a740.js" integrity="sha256-eAIW2OFWtNdAE0b9la1sG/WBsVMTcQuUToawZYppp0A=" defer></script>
+
+
+
+    
+     
+
+    
+    
+
+</body>
+</html>

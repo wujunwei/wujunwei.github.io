@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <title>2021 leetcode 春季赛</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="/application.4f6227541485e583fe9f072ae3e4437c79df4f1ac9a9cef8443066d78a81467b.css" integrity="sha256-T2InVBSF5YP&#43;nwcq4&#43;RDfHnfTxrJqc74RDBm14qBRns=" />
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+  
+
+  <link rel="icon" type="image/png" href="/images/site/favicon_hu88901fa2a861e0547be5de4019727266_3472_42x0_resize_box_3.png" />
+
+<meta property="og:title" content="2021 leetcode 春季赛" />
+<meta property="og:description" content="赛前立个flag，做出四三道题 比起去年还是进步了， 去年就做了两道题，败在了dp 上。 今年的战绩：
+接下来讲解下ac的题目 由于篇幅有限只提供题目，忽略用例,所有解答代码见note 1.采购方案 小力将 N 个零件的报价存于数组 nums。小力预算为 target，假定小力仅购买两个零件，要求购买零件的花费不超过预算，请问他有多少种采购方案。
+注意：答案需要以 1e9 &#43; 7 (1000000007) 为底取模，如：计算初始结果为：1000000008，请返回 1
+第一想法就是先排序，接下来有两个做法
+二分，遍历每个数 ni，二分找到下标j ，使得恰巧使得 nums[i]&#43;nums[j] &lt;=target；ans&#43;=j-i 双指针，做法和上述类似，初始化两个下标i，j ，每次移动i，同时移动j 恰巧使得nums[i]&#43;nums[j] &lt;=target ；ans&#43;=j-i 2.乐团站位 某乐团的演出场地可视作 num * num 的二维矩阵 grid（左上角坐标为 [0,0])，每个位置站有一位成员。乐团共有 9 种乐器，乐器编号为 1~9，每位成员持有 1 个乐器。 为保证声乐混合效果，成员站位规则为：自 grid 左上角开始顺时针螺旋形向内循环以 1，2，...，9 循环重复排列。例如当 num = 5 时，站位如图所示 注意：答案需要以 1e9 &#43; 7 (1000000007) 为底取模，如：计算初始结果为：1000000008，请返回 1
+由于数据量限制普通的模拟都会超时，所以需要找到数学规律。 我的做法是先根据坐标判断当前是第几圈，我们假设是q(q从0开始) $$q = min(x,y,num-1-x,num-1-y)$$ 通过观察得出每一圈都比外圈少8个数(长度少2，四条边就少8)，我们可以根据等差数列公式算出q圈第一个坐标经过多少个数。等差数列通项公式： $$\sum\limits_{n=1}^Na_n = na_1 &#43; \frac{n(n-1)}{2}d $$" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/algorithm/spring-leetcode-contest-2021/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-05T12:00:20+08:00" />
+<meta property="article:modified_time" content="2021-04-05T12:00:20+08:00" />
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2021 leetcode 春季赛"/>
+<meta name="twitter:description" content="赛前立个flag，做出四三道题 比起去年还是进步了， 去年就做了两道题，败在了dp 上。 今年的战绩：
+接下来讲解下ac的题目 由于篇幅有限只提供题目，忽略用例,所有解答代码见note 1.采购方案 小力将 N 个零件的报价存于数组 nums。小力预算为 target，假定小力仅购买两个零件，要求购买零件的花费不超过预算，请问他有多少种采购方案。
+注意：答案需要以 1e9 &#43; 7 (1000000007) 为底取模，如：计算初始结果为：1000000008，请返回 1
+第一想法就是先排序，接下来有两个做法
+二分，遍历每个数 ni，二分找到下标j ，使得恰巧使得 nums[i]&#43;nums[j] &lt;=target；ans&#43;=j-i 双指针，做法和上述类似，初始化两个下标i，j ，每次移动i，同时移动j 恰巧使得nums[i]&#43;nums[j] &lt;=target ；ans&#43;=j-i 2.乐团站位 某乐团的演出场地可视作 num * num 的二维矩阵 grid（左上角坐标为 [0,0])，每个位置站有一位成员。乐团共有 9 种乐器，乐器编号为 1~9，每位成员持有 1 个乐器。 为保证声乐混合效果，成员站位规则为：自 grid 左上角开始顺时针螺旋形向内循环以 1，2，...，9 循环重复排列。例如当 num = 5 时，站位如图所示 注意：答案需要以 1e9 &#43; 7 (1000000007) 为底取模，如：计算初始结果为：1000000008，请返回 1
+由于数据量限制普通的模拟都会超时，所以需要找到数学规律。 我的做法是先根据坐标判断当前是第几圈，我们假设是q(q从0开始) $$q = min(x,y,num-1-x,num-1-y)$$ 通过观察得出每一圈都比外圈少8个数(长度少2，四条边就少8)，我们可以根据等差数列公式算出q圈第一个坐标经过多少个数。等差数列通项公式： $$\sum\limits_{n=1}^Na_n = na_1 &#43; \frac{n(n-1)}{2}d $$"/>
+
+    
+    
+<meta name="description" content="2021 leetcode 春季赛" />
+
+
+    
+
+    
+        
+        
+        
+            
+            
+            
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H4LBG7NDFZ"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-H4LBG7NDFZ', { 'anonymize_ip': false });
+}
+</script>
+
+        
+
+        
+        
+
+        
+        
+
+        
+        
+        
+    
+
+
+
+
+</head>
+
+  <body class="type-posts kind-page" data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_huacd3eec89ea9f54a5a7784c0c79b3f48_13263_42x0_resize_box_3.png" alt="Logo">
+      Adam&#39;s Blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse lang-selector" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      
+      
+        <li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  <a class="dropdown-item nav-link" href="#" data-scheme="light">
+    <img class="menu-icon-center" src="/icons/sun-svgrepo-com.svg" width=20 alt="Light Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="menu-icon-center" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  <a class="dropdown-item nav-link" href="#" data-scheme="system">
+    <img class="menu-icon-center" src="/icons/computer-svgrepo-com.svg" width=20 alt="System Theme">
+  </a>
+</div>
+</li>
+
+      
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_huacd3eec89ea9f54a5a7784c0c79b3f48_13263_42x0_resize_box_3.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hu1e12c8650ef2ae3d9f0580bccd716aac_13315_42x0_resize_box_3.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts/" data-filter="all"></a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i class="fas fa-minus-circle"></i><a class="active" href="/posts/algorithm/">算法</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active" href="/posts/algorithm/spring-leetcode-contest-2021/" title="leetcode 2021春季赛-个人赛">leetcode 2021春季赛-个人赛</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/algorithm/fail-leetcode-contest-2021/" title="leetcode 2021秋季赛-个人赛">leetcode 2021秋季赛-个人赛</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/algorithm/math/" title="数学算法题">数学算法题</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/golang/">golang</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/golang/string/" title="string 解析">string 解析</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/cloud-native/">云原生相关技术</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/envoy/" title="envoy">envoy</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/cloud-native/istio/">istio组件分析</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/istio/galley/" title="galley">galley</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/istio/istio-operator/" title="istio operator">istio operator</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/istio/istioctl/" title="istioctl">istioctl</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/istio/mixer/" title="mixer">mixer</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/istio/pilot/" title="pilot">pilot</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/istio/security/" title="security">security</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i class="fas fa-plus-circle"></i><a class="" href="/posts/cloud-native/kubernetes/">Kubernetes</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cloud-native/kubernetes/kubebuilder/" title="kubebuilder">kubebuilder</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/algorithm/spring-leetcode-contest-2021/spring.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/adam_hu9694fa730dec75957fe47d1ece5e9770_45363_120x120_fit_box_3.png' alt="Author Image">
+          <h5 class="author-name">adam</h5>
+          <p>Monday, April 5, 2021</p>
+        </div>
+
+        <div class="title">
+          <h1>2021 leetcode 春季赛</h1>
+        </div>
+        
+        <div class="taxonomy-terms">
+          <ul style="padding-left: 0;">
+            
+          </ul>
+        </div>
+        
+        <div class="post-content" id="post-content">
+          <h2 id="赛前立个flag做出四三道题">赛前立个flag，做出<del>四</del>三道题</h2>
+<p>比起去年还是进步了， 去年就做了两道题，败在了<a href="https://leetcode-cn.com/problems/UlBDOe/" target="_blank" rel="noopener">dp</a> 上。
+今年的战绩：</p>
+<p><img src="./result.png" alt="2021-spring"></p>
+<h2 id="接下来讲解下ac的题目">接下来讲解下ac的题目</h2>
+<div class="alert alert-info">
+    <strong>由于篇幅有限只提供题目，忽略用例,所有解答代码见<a href="/notes/leetcode/2021-spring-contest/">note</a></strong>
+</div>
+
+<h3 id="1采购方案httpsleetcode-cncomproblems4xy4wx"><a href="https://leetcode-cn.com/problems/4xy4Wx/" target="_blank" rel="noopener">1.采购方案</a></h3>
+<blockquote>
+<p>小力将 N 个零件的报价存于数组 nums。小力预算为 target，假定小力仅购买两个零件，要求购买零件的花费不超过预算，请问他有多少种采购方案。</p>
+</blockquote>
+<blockquote>
+<p>注意：答案需要以 1e9 + 7 (1000000007) 为底取模，如：计算初始结果为：1000000008，请返回 1</p>
+</blockquote>
+<div class="alert alert-success">
+    <strong><p>第一想法就是先排序，接下来有两个做法</p>
+<ul>
+<li>二分，遍历每个数 ni，二分找到下标j ，使得恰巧使得 <code>nums[i]+nums[j] &lt;=target；ans+=j-i </code></li>
+<li>双指针，做法和上述类似，初始化两个下标i，j ，每次移动i，同时移动j 恰巧使得<code>nums[i]+nums[j] &lt;=target ；ans+=j-i</code></li>
+</ul>
+</strong>
+</div>
+
+<h3 id="2乐团站位httpsleetcode-cncomproblemssnjvjp"><a href="https://leetcode-cn.com/problems/SNJvJP/" target="_blank" rel="noopener">2.乐团站位</a></h3>
+<blockquote>
+<p>某乐团的演出场地可视作 <code>num * num</code> 的二维矩阵 <code>grid</code>（左上角坐标为 <code>[0,0]</code>)，每个位置站有一位成员。乐团共有 <code>9</code> 种乐器，乐器编号为 <code>1~9</code>，每位成员持有 <code>1</code> 个乐器。
+为保证声乐混合效果，成员站位规则为：自 <code>grid</code> 左上角开始顺时针螺旋形向内循环以 <code>1，2，...，9</code> 循环重复排列。例如当 <code>num = 5</code> 时，站位如图所示
+<img src="problem-2.png" alt=""></p>
+</blockquote>
+<blockquote>
+<p>注意：答案需要以 <code>1e9 + 7 (1000000007)</code> 为底取模，如：计算初始结果为：1000000008，请返回 1</p>
+</blockquote>
+<div class="alert alert-success">
+    <strong><p>由于数据量限制普通的模拟都会超时，所以需要找到数学规律。
+我的做法是先根据坐标判断当前是第几圈，我们假设是q(q从0开始)
+$$q = min(x,y,num-1-x,num-1-y)$$
+通过观察得出每一圈都比外圈少8个数(长度少2，四条边就少8)，我们可以根据等差数列公式算出q圈第一个坐标经过多少个数。等差数列通项公式：
+$$\sum\limits_{n=1}^Na_n = na_1 + \frac{n(n-1)}{2}d $$</p>
+<p>$$ total = 4q*(num-1)-4q*(q-1) $$</p>
+<p>再计算出q圈左上角第一个坐标{n,m} 这样就可以计算出
+答案需要对1000000007取余，这里用到了<code>中国剩余定理</code>，详见<a href="https://oi-wiki.org/math/crt/" target="_blank" rel="noopener">oi-wiki</a>。</p>
+</strong>
+</div>
+
+<h3 id="3魔塔游戏httpsleetcode-cncomproblemsp0nxjo"><a href="https://leetcode-cn.com/problems/p0NxJO/" target="_blank" rel="noopener">3.魔塔游戏</a></h3>
+<blockquote>
+<p>小扣当前位于魔塔游戏第一层，共有 N 个房间，编号为 0 ~ N-1。每个房间的补血道具/怪物对于血量影响记于数组 nums，其中正数表示道具补血数值，即血量增加对应数值；负数表示怪物造成伤害值，即血量减少对应数值；0 表示房间对血量无影响。</p>
+</blockquote>
+<blockquote>
+<p>小扣初始血量为 1，且无上限。假定小扣原计划按房间编号升序访问所有房间补血/打怪，为保证血量始终为正值，小扣需对房间访问顺序进行调整，每次仅能将一个怪物房间（负数的房间）调整至访问顺序末尾。请返回小扣最少需要调整几次，才能顺利访问所有房间。若调整顺序也无法访问完全部房间，请返回 -1。</p>
+</blockquote>
+<blockquote>
+<p>提示：</p>
+<ul>
+<li>$$1 &lt;= nums.length &lt;= 10^5$$</li>
+<li>$$-10^5 &lt;= nums[i] &lt;= 10^5$$</li>
+</ul>
+</blockquote>
+<div class="alert alert-success">
+    <strong>很明显，当数组所有数之和小于等于0时是无法活着访问所有房间的，可以直接返回-1。
+其次，我们在遍历数组时，同时计算hp，并将每个怪物扣的血量加入优先队列。当hp小于等于0时，便从队头弹出一个数值加入hp（模拟将房间移到最后访问，移动数+1。
+遍历完之后，便得出了答案。</strong>
+</div>
+
+<h3 id="待续-偷懒中"><del>待续。。。</del> 偷懒中。。</h3>
+<div class="alert alert-primary">
+    <strong>四五两题见<a href="/notes/#leetcode-contest">note</a></strong>
+</div>
+
+<hr>
+<h3 id="总结">总结</h3>
+<div class="alert alert-danger">
+    <strong>虽然比起去年有进步，但<code>WA</code>次数过多，没时间攻克困难题，对一些较难的题型还是没有毅力啃完，还是要多多复习<a href="https://oi-wiki.org/" target="_blank" rel="noopener">oi-wiki</a>的内容。团队赛加油💪。</strong>
+</div>
+
+
+        </div>
+
+        
+        <div class="row pl-3 pr-3">
+        
+        <div class="col-md-6 share-buttons">
+        
+            <strong>:</strong>
+            
+            <a class="btn btn-sm facebook-btn" href="https://www.facebook.com/sharer.php?u=%2fposts%2falgorithm%2fspring-leetcode-contest-2021%2f" target="_blank">
+              <i class="fab fa-facebook"></i>
+            </a>
+            
+            
+                <a class="btn btn-sm twitter-btn" href="https://twitter.com/share?url=%2fposts%2falgorithm%2fspring-leetcode-contest-2021%2f&text=2021%20leetcode%20%e6%98%a5%e5%ad%a3%e8%b5%9b&via=Adam%27s%20Blog" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+            
+            
+                <a  class="btn btn-sm reddit-btn" href="https://reddit.com/submit?url=%2fposts%2falgorithm%2fspring-leetcode-contest-2021%2f&title=2021%20leetcode%20%e6%98%a5%e5%ad%a3%e8%b5%9b" target="_blank">
+                  <i class="fab fa-reddit"></i>
+                </a>
+            
+            
+            
+            
+                <a class="btn btn-sm linkedin-btn" href="https://www.linkedin.com/shareArticle?url=%2fposts%2falgorithm%2fspring-leetcode-contest-2021%2f&title=2021%20leetcode%20%e6%98%a5%e5%ad%a3%e8%b5%9b" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+            
+            
+             
+            
+                 <a class="btn btn-sm whatsapp-btn" href="https://api.whatsapp.com/send?text=2021%20leetcode%20%e6%98%a5%e5%ad%a3%e8%b5%9b %2fposts%2falgorithm%2fspring-leetcode-contest-2021%2f" target="_blank">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+            
+            
+                <a class="btn btn-sm email-btn" href="mailto:?subject=2021%20leetcode%20%e6%98%a5%e5%ad%a3%e8%b5%9b&body=%2fposts%2falgorithm%2fspring-leetcode-contest-2021%2f" target="_blank">
+                  <i class="fas fa-envelope-open-text"></i>
+                </a>
+            
+          
+          </div>
+
+        
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+    
+    
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+  
+      
+      
+      <div class="col-md-12 next-article">
+        <a href="/posts/algorithm/fail-leetcode-contest-2021/" title="2021 leetcode 秋季赛" class="btn btn-outline-info">
+          <div> <i class="fas fa-chevron-circle-right"></i></div>
+          <div class="next-prev-text">2021 leetcode 秋季赛</div>
+        </a>
+      </div>
+    
+</div>
+
+      <hr />
+
+      
+      
+
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
+  
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3"></h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#赛前立个flag做出四三道题">赛前立个flag，做出四三道题</a></li>
+    <li><a href="#接下来讲解下ac的题目">接下来讲解下ac的题目</a>
+      <ul>
+        <li><a href="#1采购方案httpsleetcode-cncomproblems4xy4wx"><a href="https://leetcode-cn.com/problems/4xy4Wx/">1.采购方案</a></a></li>
+        <li><a href="#2乐团站位httpsleetcode-cncomproblemssnjvjp"><a href="https://leetcode-cn.com/problems/SNJvJP/">2.乐团站位</a></a></li>
+        <li><a href="#3魔塔游戏httpsleetcode-cncomproblemsp0nxjo"><a href="https://leetcode-cn.com/problems/p0NxJO/">3.魔塔游戏</a></a></li>
+        <li><a href="#待续-偷懒中">待续。。。 偷懒中。。</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+  
+      
+  
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5></h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#recent-posts">最近博文</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="/#about">关于我</a>
+                </li>
+              
+            
+              
+                
+              
+                
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5></h5>
+          <ul>
+            
+              
+                <li><a href=mailto:wjw3323@live.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>wjw3323@live.com</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hugo-toha/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2020 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script src="/application.780216d8e156b4d7401346fd95ad6c1bf581b15313710b944e86b0658a69a740.js" integrity="sha256-eAIW2OFWtNdAE0b9la1sG/WBsVMTcQuUToawZYppp0A=" defer></script>
+
+
+
+    
+     
+
+    
+    
+
+</body>
+</html>

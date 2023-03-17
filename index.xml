@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Adam&#39;s Blog</title>
+    <link>/</link>
+    <description>Recent content on Adam&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 11 Sep 2021 17:54:20 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>2021 leetcode 秋季赛</title>
+      <link>/posts/algorithm/fail-leetcode-contest-2021/</link>
+      <pubDate>Sat, 11 Sep 2021 17:54:20 +0800</pubDate>
+      
+      <guid>/posts/algorithm/fail-leetcode-contest-2021/</guid>
+      <description>这次比赛本周重在参与的态度，提前准备不多，没想到最后成绩还比去年高。 废话不多说放成绩，今年的战绩：
+接下来讲解下ac的题目 由于篇幅有限只提供题目，忽略用例,所有解答代码见note 1. 无人机方阵 在 「力扣挑战赛」 开幕式的压轴节目 「无人机方阵」中，每一架无人机展示一种灯光颜色。 无人机方阵通过两种操作进行颜色图案变换： 1 调整无人机的位置布局 2 切换无人机展示的灯光颜色 给定两个大小均为 N*M 的二维数组 source 和 target 表示无人机方阵表演的两种颜色图案，由于无人机切换灯光颜色的耗能很大，请返回从 source 到 target 最少需要多少架无人机切换灯光颜色。
+注意： 调整无人机的位置布局时无人机的位置可以随意变动。
+这道签到题比春季赛的简单，由于位置可以随意调换，我们可以用两个hash分别存储已有的颜色和需要的颜色的数量， 需要的颜色-已有的颜色之和就是答案了。 2. 心算挑战 「力扣挑战赛」心算项目的挑战比赛中，要求选手从 N张卡牌中选出 cnt 张卡牌，若这 cnt 张卡牌数字总和为偶数，则选手成绩「有效」且得分为 cnt 张卡牌数字总和。 给定数组 cards 和 cnt，其中 cards[i] 表示第 i 张卡牌上的数字。 请帮参赛选手计算最大的有效得分。若不存在获取有效得分的卡牌方案，则返回 0。
+显然该题适用贪心算法，我们先观察条件，分数之和必须是偶数，所以我们的卡牌只能由偶数个奇数和任意个偶数组成。 首先我们把卡牌分成奇数和偶数，再分别进行排序。 我们考虑每两张奇数卡牌之和和两张偶数卡牌之和，取其最大的组合，这样我们就能保证我们取的卡牌是分数且为偶数，如果遇到卡牌不足的情况则说明不存在满足条件的情况则返回0。 PS：如果需要去的卡牌为奇数说明必又一个偶数，我们先将最大的偶数加入结果，这样需要的卡牌数就能保证是偶数。 3. 黑白翻转棋 在 n*m 大小的棋盘中，有黑白两种棋子，黑棋记作字母 &amp;ldquo;X&amp;rdquo;, 白棋记作字母 &amp;ldquo;O&amp;rdquo;，空余位置记作 &amp;ldquo;.&amp;quot;。当落下的棋子与其他相同颜色的棋子在行、列或对角线完全包围（中间不存在空白位置）另一种颜色的棋子，则可以翻转这些棋子的颜色。
+「力扣挑战赛」黑白翻转棋项目中，将提供给选手一个未形成可翻转棋子的棋盘残局，其状态记作 chessboard。若下一步可放置一枚黑棋，请问选手最多能翻转多少枚白棋。
+注意： 若翻转白棋成黑棋后，棋盘上仍存在可以翻转的白棋，将可以 继续 翻转白棋 输入数据保证初始棋盘状态无可以翻转的棋子且存在空余位置</description>
+    </item>
+    
+    <item>
+      <title>数学相关算法题推荐</title>
+      <link>/posts/algorithm/math/</link>
+      <pubDate>Fri, 09 Apr 2021 09:33:20 +0800</pubDate>
+      
+      <guid>/posts/algorithm/math/</guid>
+      <description>数学是计算机的重要基础，算法题中常常会用到数学知识，尤其是离散、具体的数学，以数论、排列组合、概率期望、多项式为代表，可以出现在几乎任何类别的题目中，所有题目涉及到的数学知识点都已标出，建议去oi-wiki 学习。
+强烈建议小伙伴先尝试用非数学的常规解法思考以下题目（也许会更简单更好理解），再用数学的解法。
+第一周 5月3日 开胃小菜: 斐波那契数列 ，在这道题中，你会学到算法题中必会的一个数学知识点 中国剩余定理 。建议独自完成四种做法，并完成快速幂 的普通写法（模版）以及公式法 。 灯泡开关 尝试使用数学的思维分析n轮后灯泡亮着必须满足什么条件。 5月5日 超级丑数 做这题之前先学习求质数的几种方法 （强烈建议掌握）,之后只需要思考如果求出第n个即可. 石子游戏 经典的石子游戏肯定是不能错过的，建议用动态规划解一遍。 5月7日 循环码排列 ，可以先用朴素做法，再了解格雷码 ，优化解法。 飞机座位 这道题是很明显可以利用数学优化的题目。 第二周 5月12日 各位相加 尽量优化你的时间复杂度和空间复杂度至 $O(1)$ 。 放松一下： 不浪费原料的汉堡制作方案 我愿称之为最简单中等题。 5月14日 使数组和能被 P 整除 剩余定理的应用，加上前缀和的思想。 最简分数 思路很简单，可以学习到求最大公约 数的做法。 5月16日 检查「好数组」 建议了解裴蜀定理 之后再做这题，通过这个定理你还可以解决以下题目 水壶问题 安排邮筒 动态规划中数学的应用，中位数的思想非常常用。 第三周 5月19日 剪绳子 II leetcode中有许多类似的题目掌握其中的思想，就能解决许多类似的问题： 剪绳子 整数拆分 好因子的最大数目 &amp;hellip; 构造乘积数组 记得考虑特殊情况。 5月21日 字符串相乘 高精度计算，行列式模拟即可。 航班预订 本题可以利用差分 的思想来快速求解区间和（对于不会线段树和树状数组的小伙伴是很有利的）。 5月23日 石子游戏5 石子游戏又来啦。 完全平方数 可以先尝试搜索算法，再看数学解答 拉格朗日四平方定理 。 第四周 5月26日 阶乘后的零 ，我们只需要思考什么数相乘会等于零。 阶乘函数后 K 个零 有了上面的基础这题就会容易一些。 5月28日 形成两个异或相等数组的三元组数目 思考如何利用异或的性质。 消失的两个数 希望能用三中解法解决本题其中位运算法和此题 相似 5月30日 结业考试 乐团站位 思考怎样通过坐标判断是第几圈， 总结每圈的公式。（本题是全站通过率最低的简单题） 奇妙序列 预备知识：乘法逆元 +快速幂+剩余定理。 有能力的小伙伴也可以用树状数组来解答。 （本题是全站通过率最低的困难题） </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/envoy/</link>
+      <pubDate>Tue, 06 Apr 2021 16:31:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/envoy/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>2021 leetcode 春季赛</title>
+      <link>/posts/algorithm/spring-leetcode-contest-2021/</link>
+      <pubDate>Mon, 05 Apr 2021 12:00:20 +0800</pubDate>
+      
+      <guid>/posts/algorithm/spring-leetcode-contest-2021/</guid>
+      <description>赛前立个flag，做出四三道题 比起去年还是进步了， 去年就做了两道题，败在了dp 上。 今年的战绩：
+接下来讲解下ac的题目 由于篇幅有限只提供题目，忽略用例,所有解答代码见note 1.采购方案 小力将 N 个零件的报价存于数组 nums。小力预算为 target，假定小力仅购买两个零件，要求购买零件的花费不超过预算，请问他有多少种采购方案。
+注意：答案需要以 1e9 + 7 (1000000007) 为底取模，如：计算初始结果为：1000000008，请返回 1
+第一想法就是先排序，接下来有两个做法
+二分，遍历每个数 ni，二分找到下标j ，使得恰巧使得 nums[i]+nums[j] &amp;lt;=target；ans+=j-i 双指针，做法和上述类似，初始化两个下标i，j ，每次移动i，同时移动j 恰巧使得nums[i]+nums[j] &amp;lt;=target ；ans+=j-i 2.乐团站位 某乐团的演出场地可视作 num * num 的二维矩阵 grid（左上角坐标为 [0,0])，每个位置站有一位成员。乐团共有 9 种乐器，乐器编号为 1~9，每位成员持有 1 个乐器。 为保证声乐混合效果，成员站位规则为：自 grid 左上角开始顺时针螺旋形向内循环以 1，2，...，9 循环重复排列。例如当 num = 5 时，站位如图所示 注意：答案需要以 1e9 + 7 (1000000007) 为底取模，如：计算初始结果为：1000000008，请返回 1
+由于数据量限制普通的模拟都会超时，所以需要找到数学规律。 我的做法是先根据坐标判断当前是第几圈，我们假设是q(q从0开始) $$q = min(x,y,num-1-x,num-1-y)$$ 通过观察得出每一圈都比外圈少8个数(长度少2，四条边就少8)，我们可以根据等差数列公式算出q圈第一个坐标经过多少个数。等差数列通项公式： $$\sum\limits_{n=1}^Na_n = na_1 + \frac{n(n-1)}{2}d $$</description>
+    </item>
+    
+    <item>
+      <title>golang-string</title>
+      <link>/posts/golang/string/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/golang/string/</guid>
+      <description>todo </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/galley/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/galley/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/istio-operator/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/istio-operator/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/istioctl/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/istioctl/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/mixer/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/mixer/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/pilot/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/pilot/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/security/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/security/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/kubernetes/kubebuilder/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/kubernetes/kubebuilder/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <item>
+      <title>2021 leetcode 春季赛</title>
+      <link>/notes/leetcode/2021-spring-contest/no.1~3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/leetcode/2021-spring-contest/no.1~3/</guid>
+      <description>第一题 func purchasePlans(nums []int, target int) int { sort.Ints(nums) ans := 0 i, j := 0, len(nums)-1 for; i &amp;lt; j; i++ { for i&amp;lt;j &amp;amp;&amp;amp; nums[i]+nums[j]&amp;gt;target { j-- } ans += j - i } return ans % (1e9 + 7) } 第二题 func min(a, b int) int { if a &amp;lt; b { return a } return b } func orchestraLayout(num int, xPos int, yPos int) int { qx := min(num-xPos-1, xPos) qy := min(num-yPos-1, yPos) q := min(qx, qy) n1 := num*4 - 4 var start int if q == 0 { start = 1 } else { start = n1*q - (q-1)*q*4 + 1 } if xPos == q { start += yPos - xPos } else if yPos == q { start += (num-q*2-1)*3 + num - q - 1 - xPos } else if num-xPos-1 == q { start += (num-q*2-1)*2 + num - q - 1 - yPos } else if num-yPos-1 == q { start += num - q*2 - 1 + xPos - q } if start%9 == 0 { return 9 } return start % 9 } 第三题 type myHeap struct { arr []int } func (m *myHeap) Len() int { return len(m.</description>
+    </item>
+    
+    <item>
+      <title>2021 leetcode 春季赛</title>
+      <link>/notes/leetcode/2021-spring-contest/no.4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/leetcode/2021-spring-contest/no.4/</guid>
+      <description>第四题 type Pair struct { a, b, index int } type PriorityQueue []*Pair func (pq PriorityQueue) Len() int { return len(pq) } func (pq PriorityQueue) Less(i, j int) bool { return pq[i].a &amp;lt; pq[j].a } func (pq PriorityQueue) Swap(i, j int) { pq[i], pq[j] = pq[j], pq[i] pq[i].index = i pq[j].index = j } func (pq *PriorityQueue) Push(x interface{}) { n := len(*pq) item := x.(*Pair) item.index = n *pq = append(*pq, item) } func (pq *PriorityQueue) Pop() interface{} { old := *pq n := len(old) item := old[n-1] old[n-1] = nil item.</description>
+    </item>
+    
+    <item>
+      <title>2021 leetcode 春季赛</title>
+      <link>/notes/leetcode/2021-spring-contest/no.5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/leetcode/2021-spring-contest/no.5/</guid>
+      <description>第五题 var dir4 = []struct{ x, y int }{{-1, 0}, {1, 0}, {0, -1}, {0, 1}} func escapeMaze(g [][]string) bool { k, n, m := len(g), len(g[0]), len(g[0][0]) vis := make([][][][6]bool, k) for i := range vis { vis[i] = make([][][6]bool, n) for j := range vis[i] { vis[i][j] = make([][6]bool, m) } } // s 的最低位：是否使用了临时消除术 // s 的其余位：0-未使用永久消除术，1-当前正位于永久消除的位置，2-已使用永久消除术 var f func(t, x, y, s int) bool f = func(t, x, y, s int) bool { if x &amp;lt; 0 || x &amp;gt;= n || y &amp;lt; 0 || y &amp;gt;= m || t+n-1-x+m-1-y &amp;gt;= k || vis[t][x][y][s] { return false } if x == n-1 &amp;amp;&amp;amp; y == m-1 { return true } vis[t][x][y][s] = true if s&amp;gt;&amp;gt;1 == 1 { for _, d := range dir4 { if f(t+1, x+d.</description>
+    </item>
+    
+    <item>
+      <title>2021 leetcode 秋季赛</title>
+      <link>/notes/leetcode/2021-fail-contest/no.1~3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/leetcode/2021-fail-contest/no.1~3/</guid>
+      <description>第一题 func minimumSwitchingTimes(source [][]int, target [][]int) int { have := make(map[int]int) for i := 0; i &amp;lt; len(source); i++ { for j := 0; j &amp;lt; len(source[i]); j++ { have[source[i][j]]++ } } need:=make(map[int]int) for i := 0; i &amp;lt; len(target); i++ { for j := 0; j &amp;lt; len(target[i]); j++ { need[target[i][j]]++ } } ans:=0 for i, c := range need { if have[i] &amp;gt;= c{ continue } ans+= c-have[i] } return ans } 第二题 func maxmiumScore(cards []int, cnt int) int { var odd, even []int for i := 0; i &amp;lt; len(cards); i++ { if cards[i]&amp;amp;1 == 1 { odd = append(odd, cards[i]) } else { even = append(even, cards[i]) } } sort.</description>
+    </item>
+    
+    <item>
+      <title>2021 leetcode 秋季赛</title>
+      <link>/notes/leetcode/2021-fail-contest/no.4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/leetcode/2021-fail-contest/no.4/</guid>
+      <description> 第四题 func circleGame(toys [][]int, circles [][]int, r int) int { sort.Slice(circles, func(i, j int) bool { return circles[i][0] &amp;lt; circles[j][0] }) ans := 0 for i := 0; i &amp;lt; len(toys); i++ { if toys[i][2]&amp;gt;r{ continue } l, h := 0, len(circles) for l &amp;lt; h { m := (l + h) / 2 if toys[i][0]-toys[i][2] &amp;lt;= circles[m][0]+r { h = m } else { l = m + 1 } } for j:= l; j &amp;lt; len(circles); j++ { if toys[i][0]-toys[i][2] &amp;lt; circles[j][0]-r { break } if in(toys[i], circles[j], r) { ans++ break } } } return ans } func in(x, y []int, r int) bool { return (x[0]-y[0])*(x[0]-y[0])+(x[1]-y[1])*(x[1]-y[1]) &amp;lt;= (r-x[2])*(r-x[2]) } </description>
+    </item>
+    
+    
+  </channel>
+</rss>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on Adam&#39;s Blog</title>
+    <link>/notes/</link>
+    <description>Recent content in Notes on Adam&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 08 Jun 2010 08:06:25 +0600</lastBuildDate><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <item>
+      <title>2021 leetcode 春季赛</title>
+      <link>/notes/leetcode/2021-spring-contest/no.1~3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/leetcode/2021-spring-contest/no.1~3/</guid>
+      <description>第一题 func purchasePlans(nums []int, target int) int { sort.Ints(nums) ans := 0 i, j := 0, len(nums)-1 for; i &amp;lt; j; i++ { for i&amp;lt;j &amp;amp;&amp;amp; nums[i]+nums[j]&amp;gt;target { j-- } ans += j - i } return ans % (1e9 + 7) } 第二题 func min(a, b int) int { if a &amp;lt; b { return a } return b } func orchestraLayout(num int, xPos int, yPos int) int { qx := min(num-xPos-1, xPos) qy := min(num-yPos-1, yPos) q := min(qx, qy) n1 := num*4 - 4 var start int if q == 0 { start = 1 } else { start = n1*q - (q-1)*q*4 + 1 } if xPos == q { start += yPos - xPos } else if yPos == q { start += (num-q*2-1)*3 + num - q - 1 - xPos } else if num-xPos-1 == q { start += (num-q*2-1)*2 + num - q - 1 - yPos } else if num-yPos-1 == q { start += num - q*2 - 1 + xPos - q } if start%9 == 0 { return 9 } return start % 9 } 第三题 type myHeap struct { arr []int } func (m *myHeap) Len() int { return len(m.</description>
+    </item>
+    
+    <item>
+      <title>2021 leetcode 春季赛</title>
+      <link>/notes/leetcode/2021-spring-contest/no.4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/leetcode/2021-spring-contest/no.4/</guid>
+      <description>第四题 type Pair struct { a, b, index int } type PriorityQueue []*Pair func (pq PriorityQueue) Len() int { return len(pq) } func (pq PriorityQueue) Less(i, j int) bool { return pq[i].a &amp;lt; pq[j].a } func (pq PriorityQueue) Swap(i, j int) { pq[i], pq[j] = pq[j], pq[i] pq[i].index = i pq[j].index = j } func (pq *PriorityQueue) Push(x interface{}) { n := len(*pq) item := x.(*Pair) item.index = n *pq = append(*pq, item) } func (pq *PriorityQueue) Pop() interface{} { old := *pq n := len(old) item := old[n-1] old[n-1] = nil item.</description>
+    </item>
+    
+    <item>
+      <title>2021 leetcode 春季赛</title>
+      <link>/notes/leetcode/2021-spring-contest/no.5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/leetcode/2021-spring-contest/no.5/</guid>
+      <description>第五题 var dir4 = []struct{ x, y int }{{-1, 0}, {1, 0}, {0, -1}, {0, 1}} func escapeMaze(g [][]string) bool { k, n, m := len(g), len(g[0]), len(g[0][0]) vis := make([][][][6]bool, k) for i := range vis { vis[i] = make([][][6]bool, n) for j := range vis[i] { vis[i][j] = make([][6]bool, m) } } // s 的最低位：是否使用了临时消除术 // s 的其余位：0-未使用永久消除术，1-当前正位于永久消除的位置，2-已使用永久消除术 var f func(t, x, y, s int) bool f = func(t, x, y, s int) bool { if x &amp;lt; 0 || x &amp;gt;= n || y &amp;lt; 0 || y &amp;gt;= m || t+n-1-x+m-1-y &amp;gt;= k || vis[t][x][y][s] { return false } if x == n-1 &amp;amp;&amp;amp; y == m-1 { return true } vis[t][x][y][s] = true if s&amp;gt;&amp;gt;1 == 1 { for _, d := range dir4 { if f(t+1, x+d.</description>
+    </item>
+    
+    <item>
+      <title>2021 leetcode 秋季赛</title>
+      <link>/notes/leetcode/2021-fail-contest/no.1~3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/leetcode/2021-fail-contest/no.1~3/</guid>
+      <description>第一题 func minimumSwitchingTimes(source [][]int, target [][]int) int { have := make(map[int]int) for i := 0; i &amp;lt; len(source); i++ { for j := 0; j &amp;lt; len(source[i]); j++ { have[source[i][j]]++ } } need:=make(map[int]int) for i := 0; i &amp;lt; len(target); i++ { for j := 0; j &amp;lt; len(target[i]); j++ { need[target[i][j]]++ } } ans:=0 for i, c := range need { if have[i] &amp;gt;= c{ continue } ans+= c-have[i] } return ans } 第二题 func maxmiumScore(cards []int, cnt int) int { var odd, even []int for i := 0; i &amp;lt; len(cards); i++ { if cards[i]&amp;amp;1 == 1 { odd = append(odd, cards[i]) } else { even = append(even, cards[i]) } } sort.</description>
+    </item>
+    
+    <item>
+      <title>2021 leetcode 秋季赛</title>
+      <link>/notes/leetcode/2021-fail-contest/no.4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/notes/leetcode/2021-fail-contest/no.4/</guid>
+      <description> 第四题 func circleGame(toys [][]int, circles [][]int, r int) int { sort.Slice(circles, func(i, j int) bool { return circles[i][0] &amp;lt; circles[j][0] }) ans := 0 for i := 0; i &amp;lt; len(toys); i++ { if toys[i][2]&amp;gt;r{ continue } l, h := 0, len(circles) for l &amp;lt; h { m := (l + h) / 2 if toys[i][0]-toys[i][2] &amp;lt;= circles[m][0]+r { h = m } else { l = m + 1 } } for j:= l; j &amp;lt; len(circles); j++ { if toys[i][0]-toys[i][2] &amp;lt; circles[j][0]-r { break } if in(toys[i], circles[j], r) { ans++ break } } } return ans } func in(x, y []int, r int) bool { return (x[0]-y[0])*(x[0]-y[0])+(x[1]-y[1])*(x[1]-y[1]) &amp;lt;= (r-x[2])*(r-x[2]) } </description>
+    </item>
+    
+    
+  </channel>
+</rss>

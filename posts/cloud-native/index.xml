@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>云原生 on Adam&#39;s Blog</title>
+    <link>/posts/cloud-native/</link>
+    <description>Recent content in 云原生 on Adam&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 06 Apr 2021 16:31:20 +0800</lastBuildDate><atom:link href="/posts/cloud-native/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/envoy/</link>
+      <pubDate>Tue, 06 Apr 2021 16:31:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/envoy/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/galley/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/galley/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/istio-operator/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/istio-operator/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/istioctl/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/istioctl/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/mixer/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/mixer/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/pilot/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/pilot/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/istio/security/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/istio/security/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    <item>
+      <title>开始学习</title>
+      <link>/posts/cloud-native/kubernetes/kubebuilder/</link>
+      <pubDate>Sun, 04 Apr 2021 23:00:20 +0800</pubDate>
+      
+      <guid>/posts/cloud-native/kubernetes/kubebuilder/</guid>
+      <description>Complete Post Coming Soon&amp;hellip; </description>
+    </item>
+    
+    
+  </channel>
+</rss>
