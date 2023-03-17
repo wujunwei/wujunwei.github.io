@@ -1,0 +1,50 @@
+section:
+  name: 关于我
+  id: about
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  template: sections/about.html
+
+# your designation
+designation: 云原生开发工程师
+# your company information
+#company:
+#  name: Example Co.
+#  url: "https://www.example.com"
+
+# your resume. this file path should be relative to you "static" directory
+#resume: "files/resume.pdf"
+
+# a summary about you
+summary: |
+  我是一个普通的程序员，热爱算法,经常参与leetcode的周赛成绩还算可以。目前从事云原生相关工作，还在学习研究k8s的源码以及云原生相关技术。
+  后期打算分享一些参赛以及算法的学习心得，k8s源码阅读分析等等，如果大家有啥想看的也可以mail告诉我。
+
+# your social links
+# give as many as you want. use font-awesome for the icons.
+socialLinks:
+  - name: Email
+    icon: "fas fa-envelope"
+    url: "wjw3323@live.com"
+
+  - name: Github
+    icon: "fab fa-github"
+    url: "https://github.com/wujunwei"
+
+# your soft skills
+# give the percentage between 50 to 100 with 5 intervals.
+# currently supported color: blue, yellow, pink, green
+softSkills:
+  - name: Golang
+    percentage: 90
+    color: blue
+  - name: PHP
+    percentage: 80
+    color: yellow
+  - name: Python
+    percentage: 50
+    color: pink
+  - name: rust
+    percentage: 50
+    color: green

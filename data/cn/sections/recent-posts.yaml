@@ -1,0 +1,7 @@
+# section information
+section:
+  name: 最近博文
+  id: recent-posts
+  enable: true
+  weight: 1
+  showOnNavbar: true

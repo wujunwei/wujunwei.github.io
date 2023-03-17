@@ -1,0 +1,10 @@
+# Copyright Notice
+copyright: © 2020 Copyright.
+
+# Meta description for your site.  This will help the search engines to find your site.
+description: Portfolio and personal blog of John Doe.
+customMenus:
+  - name: Leetcode
+    url: https://leetcode-cn.com/u/while-true-coding/
+  - name: 笔记
+    url: /notes

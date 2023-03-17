@@ -1,0 +1,16 @@
+# some information about you
+name: "adam"
+nickname: "adam"
+# greeting message before your name. it will default to "Hi! I am" if not provided
+greeting: "我是"
+image: "images/author/adam.png"
+# give your some contact information. they will be used in the footer
+contactInfo:
+  email: "wjw3323@live.com"
+#  phone: "+0123456789"
+
+# some summary about what you do
+summary:
+  - 永远不要停止学习
+  - Half is worse than none
+  - 还不够！
