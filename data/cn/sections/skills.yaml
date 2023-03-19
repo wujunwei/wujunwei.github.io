@@ -13,28 +13,28 @@ section:
 skills:
 - name: Kubernetes
   logo: /images/sections/skills/kubernetes.png
-  summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
+  summary: "能够在 Kubernetes 上部署、管理应用程序，在为 CRD 编写 Kubernetes 控制器（operator）方面经验丰富。熟悉源码，可根据需要进行性能调优。"
   url: "https://kubernetes.io/"
 
 - name: Go Development
   logo: /images/sections/skills/go.png
-  summary: "Using as the main language for professional development. Capable of writing scalable, testable, and maintainable program."
+  summary: "用作专业发展的主要语言。能够编写可扩展、可测试和维护的程序。了解部分功能的实现原理"
   url: "https://golang.org/"
 
-- name: Cloud Computing
+- name: Cloud Native
   logo: /images/sections/skills/cloud.png
-  summary: "Worked with most of the major clouds such as GCP, AWS, Azure etc."
+  summary: "经常参与云原生相关软件的开源贡献，例如：dapr、harbor、helm、opencost等。"
 
 - name: Docker
   logo: /images/sections/skills/docker.svg
-  summary: "Write most of the programs as dockerized container. Experienced with multi-stage, multi-arch build process."
+  summary: "具有将大多数程序编写为容器化的经验。具有多阶段、多架构容器镜像构建过程的经验。"
   url: "https://www.docker.com/"
 
 - name: Prometheus
   logo: /images/sections/skills/prometheus.png
-  summary: "Capable of setup, configure Prometheus metrics. Experienced with PromQL, AlertManager. Also, experienced with writing metric exporters."
+  summary: "能够设置、配置普罗米修斯指标。有PromQL的经验，AlertManager。此外，在编写指标导出器方面经验丰富。"
   url: "https://prometheus.io/"
 
 - name: Linux
   logo: /images/sections/skills/linux.png
-  summary: "Using as the main operating system. Capable of writing bash/shell scripts."
+  summary: "用作主操作系统。能够编写 bash/shell 脚本。"
