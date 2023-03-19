@@ -1,10 +1,30 @@
 # Copyright Notice
 copyright: © 2020 Copyright.
 
+# A disclaimer notice for the footer. Make sure you have set "params.footer.disclaimer.enable: true" in your `config.yaml` file.
+disclaimer: "This theme is under MIT license. So, you can use it for non-commercial, commercial, or private uses.
+You can modify or distribute the theme without requiring any permission from the theme author.
+However, the theme author does not provide any warranty or takes any liability for any issue with the theme."
+
 # Meta description for your site.  This will help the search engines to find your site.
 description: Portfolio and personal blog of John Doe.
 customMenus:
   - name: Leetcode
     url: https://leetcode-cn.com/u/while-true-coding/
   - name: 笔记
-    url: /notes
+    url: /notes/
+  - name: 文章
+    url: /posts/
+  # specify whether to hide the menu item from top navbar or not.
+    hideFromNavbar: false
+  # specify whether to show the menu item in footer or not.
+  # if you set it to true, make sure you have set `footer.navigation.customMenus: true` in your config.yaml
+    showOnFooter: false
+
+# Specify OpenGraph Headers
+openGraph:
+  title: Adam's Blog
+  type: website
+  description: personal blog of Adam.
+  image: images/author/adam.png
+  url: https://wujunwei.github.io

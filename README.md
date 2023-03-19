@@ -1,5 +1,6 @@
-## my blog
+# my blog
 
+### install
 
 ---
 At first, initialize Hugo modules in your repo. This will create a go.mod file.
@@ -10,7 +11,7 @@ hugo mod init github.com/<your username>/<your repo name>
 1. Add this theme as your module dependency
    Now, in your config.yaml file, add a module section.
 
-### Use Hugo modules to add theme
+#### Use Hugo modules to add theme
 module:
 imports:
 - path: github.com/hugo-toha/toha/v4
@@ -39,3 +40,10 @@ npm install
 ```shell
 hugo server -w
 ```
+
+## todo
+
+- [x] post
+- [X] resume
+- [ ] comment
+- [ ] github workflow

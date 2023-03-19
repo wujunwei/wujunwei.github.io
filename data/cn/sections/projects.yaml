@@ -1,0 +1,81 @@
+# section information
+section:
+  name: 项目
+  id: projects
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+buttons:
+- name: 所有
+  filter: "all"
+- name: 专业
+  filter: "professional"
+- name: 云原生
+  filter: "Cloud"
+- name: 爱好
+  filter: "hobby"
+
+# your projects
+projects:
+- name: Kubernetes
+  logo: /images/sections/projects/kubernetes.png
+  role: Contributor
+  timeline: "March 2022 - Present"
+  repo: https://github.com/kubernetes/kubernetes
+  summary:
+  tags: ["professional", "kubernetes", "Cloud"]
+
+- name: Helm
+  logo: /images/sections/projects/helm.svg
+  role: Developer
+  timeline: "Jun 2021 - Present"
+  repo: https://github.com/helm/helm
+  url: "helm.sh"
+  summary: A tool for managing Charts. Charts are packages of pre-configured Kubernetes resources.
+  tags: ["professional", "application", "Cloud"]
+
+- name: harbor
+  logo: /images/sections/projects/harbor.png
+  role: Contributor
+  timeline: "Nov 2021 - Present"
+  repo: https://github.com/goharbor/harbor
+  url: "https://goharbor.io/"
+  summary: An open source trusted cloud native registry project that stores, signs, and scans content.
+  tags: [ "kubernetes", "Cloud", "repository"]
+
+- name: argo
+  logo: /images/sections/projects/argo.png
+  role: Contributor
+  timeline: "Oct 2022 - Present"
+  url: "https://argoproj.github.io/"
+  repo: https://github.com/argoproj/argo-workflows
+  summary: The best way to write secure and reliable applications. Write nothing; deploy nowhere.
+  tags: ["hobby", "Cloud", "workflow"]
+
+- name: loki
+  logo: /images/sections/projects/loki.png
+  role: Contributor
+  timeline: "Mar 2022 - Present"
+  url: "https://grafana.com/docs/loki/latest/"
+  repo: https://github.com/grafana/loki
+  summary: A horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus.
+  tags: ["hobby", "Cloud", "log"]
+
+- name: redlock
+  logo: /images/sections/projects/redis.png
+  role: Owner
+  timeline: "Jun 2019 - Present"
+  repo: https://github.com/wujunwei/redlock
+  summary: A way to achieve distributed lock by redis module.
+  tags: ["hobby","redis","module"]
+
+- name: crd2openapi
+  role: Owner
+  timeline: "Jun 2022 - Present"
+  repo: https://github.com/wujunwei/crd2openapi
+  summary: A tool for converting CRD (Custom Resource Definition) to open api json.
+  tags: ["hobby","kubernetes","API"]

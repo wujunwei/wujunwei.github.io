@@ -1,0 +1,53 @@
+# section information
+section:
+  name: 工作经历
+  id: experiences
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true 
+
+# Your experiences
+experiences:
+- company:
+    name: 恒生电子
+    url: "https://hundsun.com"
+    location: 杭州
+    # company overview
+    overview: 恒生聚焦金融行业，致力于为证券、期货、基金、信托、保险、银行、交易所、私募等机构提供整体解决方案和服务。
+  positions:
+  - designation: 云原生技术专家
+    start: 2021.06
+    responsibilities:
+    - kubernetes 优化
+    - 应用模型及生命周期设计
+    - 协助容器化改造.
+
+- company:
+    name: 边锋.
+    url: "https://www.bianfeng.com/"
+    location: 杭州
+    overview: 边锋创建于1999年，主要由边锋游戏和游戏茶苑两家中国领先的棋牌游戏公司合并运营发展而成。
+  positions:
+  - designation: 云原生开发工程师
+    start: 2020.05
+    end: 2021.05
+    responsibilities:
+    - 云平台搭建.
+    - 云原生布道.
+    - 协助容器化改造.
+
+- company:
+    name: SHEIN.
+    url: "https://www.shein.com"
+    location: 南京
+    overview: 中国跨境电商巨头，SHEIN是一家国际 B2C 快时尚电子商务公司。
+  positions:
+  - designation: 资深开发工程师
+    start: 2016.02
+    end: 2020.03
+    responsibilities:
+    - 框架设计.
+    - 需求分析.
+    - 业务研发.

@@ -1,0 +1,21 @@
+# section information
+section:
+  name: 教育
+  id: education
+  template: sections/education.html # Use "sections/education-alt.html for alternate template.
+  enable: true
+  weight: 5
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+degrees:
+- name: 本科
+  icon: fa-school
+  timeframe: 2012-2016
+  institution:
+    name: 南京理工大学
+  grade: #(optional)
+    scale: GPA
+    achieved: 3.2
+    outOf: 4
