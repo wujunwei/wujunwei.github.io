@@ -26,7 +26,7 @@ projects:
   role: Contributor
   timeline: "March 2022 - Present"
   repo: https://github.com/kubernetes/kubernetes
-  summary:
+  summary: Kubernetes 是一个可移植、可扩展的开源平台，用于管理容器化的工作负载和服务，方便进行声明式配置和自动化。
   tags: ["professional", "kubernetes", "Cloud"]
 
 - name: Helm
@@ -35,7 +35,7 @@ projects:
   timeline: "Jun 2021 - Present"
   repo: https://github.com/helm/helm
   url: "helm.sh"
-  summary: A tool for managing Charts. Charts are packages of pre-configured Kubernetes resources.
+  summary: Helm 是 Kubernetes 的包管理器，可以简化 Kubernetes 应用的部署和管理。
   tags: ["professional", "application", "Cloud"]
 
 - name: harbor
@@ -44,7 +44,7 @@ projects:
   timeline: "Nov 2021 - Present"
   repo: https://github.com/goharbor/harbor
   url: "https://goharbor.io/"
-  summary: An open source trusted cloud native registry project that stores, signs, and scans content.
+  summary: Harbor 是一个用于存储和分发容器镜像及其他 Artifact 的云原生制品仓库，提供了命令行工具和图形管理界面。
   tags: [ "kubernetes", "Cloud", "repository"]
 
 - name: argo
@@ -53,7 +53,7 @@ projects:
   timeline: "Oct 2022 - Present"
   url: "https://argoproj.github.io/"
   repo: https://github.com/argoproj/argo-workflows
-  summary: The best way to write secure and reliable applications. Write nothing; deploy nowhere.
+  summary: Argo-workflow 是一个基于 Kubernetes 的容器原生的工作流引擎，可以在 Kubernetes 上编排并行作业。
   tags: ["hobby", "Cloud", "workflow"]
 
 - name: loki
@@ -62,7 +62,7 @@ projects:
   timeline: "Mar 2022 - Present"
   url: "https://grafana.com/docs/loki/latest/"
   repo: https://github.com/grafana/loki
-  summary: A horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus.
+  summary: Loki 是一个水平可扩展，高可用性，多租户的日志聚合系统，不会为日志内容编制索引，而是为每个日志流编制一组标签。
   tags: ["hobby", "Cloud", "log"]
 
 - name: redlock
@@ -70,12 +70,12 @@ projects:
   role: Owner
   timeline: "Jun 2019 - Present"
   repo: https://github.com/wujunwei/redlock
-  summary: A way to achieve distributed lock by redis module.
+  summary: redlock是一个利用redis module实现的分布式锁，无需特定客户端或语言即可使用。
   tags: ["hobby","redis","module"]
 
 - name: crd2openapi
   role: Owner
   timeline: "Jun 2022 - Present"
   repo: https://github.com/wujunwei/crd2openapi
-  summary: A tool for converting CRD (Custom Resource Definition) to open api json.
+  summary: crd2openapi是一个可以将crd（Custom Resource Definition）的kubernetes对象yaml转换为openapi规范的json的工具，可用于workflow自动化接口文档等功能。
   tags: ["hobby","kubernetes","API"]

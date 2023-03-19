@@ -40,10 +40,3 @@ npm install
 ```shell
 hugo server -w
 ```
-
-## todo
-
-- [x] post
-- [X] resume
-- [ ] comment
-- [ ] github workflow
